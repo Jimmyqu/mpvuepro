@@ -7,6 +7,13 @@
         <card :text="userInfo.nickName"></card>
       </div>
     </div>
+    <text style="color: lawngreen;font-size: 30rpx">
+      我的收藏
+    </text>
+    <div>
+      <text style=" color: gray;font-size: 25rpx" v-if="collection.length===0">暂无收藏 去详细页添加收藏</text>
+      <p style="color: crimson;font-size: 25rpx" v-for="item in collection" :key="item">{{item}}</p>
+    </div>
 
     <div class="usermotto">
       <div class="user-motto">
@@ -24,11 +31,12 @@
 
 <script>
 import card from '@/components/card'
+import store from '../counter/store'
 
 export default {
   data () {
     return {
-      motto: 'Hello World',
+      motto: 'plz type in ',
       userInfo: {},
     }
   },
@@ -36,7 +44,11 @@ export default {
   components: {
     card
   },
-
+  computed:{
+    collection () {
+      return store.state.collection
+    }
+  },
   methods: {
     bindViewTap () {
       const url = '../logs/main'

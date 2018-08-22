@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/counter/main",
     "pages/index/main",
+    "pages/counter/main",
     "pages/logs/main",
     "pages/counterChrild/main"
   ]

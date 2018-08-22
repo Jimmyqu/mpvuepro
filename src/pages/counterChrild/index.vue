@@ -1,11 +1,20 @@
 <template>
   <div class="counter-warp">
-      counter insider
+    <div class="list-container" v-for="item in [1,2,3,4,5,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,0] " :key="item">
+      <div class="list-l">
+      </div>
+      <div class="list-r">
+        <p>人气:{{item}}</p>
+        <text class="title">游戏名称</text>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 // Use Vuex
+
+
 export default {
     data:function () {
       return {
@@ -13,6 +22,7 @@ export default {
       }
     },
   mounted(){
+
     wx.getSystemInfo({
       success: (res)=> {
         console.log(res);
@@ -37,39 +47,30 @@ export default {
 }
 </script>
 
-<style>
-.counter-warp {
-}
-.home {
-  display: inline-block;
-  margin: 0 auto;
-  padding: 5px 10px;
-  color: blue;
-  border: 1px solid blue;
-}
-.page__bd{
-  height:300rpx;
-  width: 95%;
-  margin: 20rpx auto;
-}
-.item-container{
-  overflow: scroll;
-}
-image{
-  width: 100%;
-}
-.y-scroll{
-
-}
-.y-scroll-container{
-  overflow-x: scroll;
-  white-space:nowrap;
-}
-  .y-scroll-item{
-    display: inline-block;
-    width: 80px;
-    height: 80px;
-    background-color: rebeccapurple;
-    margin: 5rpx 5rpx;
+<style scoped>
+  .counter-warp{
+    padding: 30rpx 0;
+  }
+  .list-container{
+    width: 95%;
+    margin: 0 2.5%;
+    border: 1px solid salmon;
+    border-radius: 10rpx;
+    display: flex;
+    flex-direction: row;
+    height: 120rpx;
+  }
+  .list-l{
+    flex: 1;
+    background-color: pink;
+    margin-top: 2rpx;
+  }
+  .list-r{
+    flex: 4;
+    padding-left: 30rpx;
+    padding-top: 10rpx;
+  }
+  .list-r p{
+    font-size: 24rpx;
   }
 </style>
